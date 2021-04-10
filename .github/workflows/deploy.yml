@@ -1,0 +1,26 @@
+name: 2021-hackathon-group-fe-deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: npm install && npm run build
+
+      - name: Rsync-deploy
+        uses: AEnterprise/rsync-deploy@v1.0
+        env:
+          SERVER_IP: ${{ secrets.SSH_HOST }}
+          SERVER_PORT: "22"
+          USERNAME: ${{ secrets.SSH_USERNAME }}
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+
+          ARGS: "-a -z"
+          FOLDER: ./build/
+          SERVER_DESTINATION: /usr/share/nginx/html/hackathon/
