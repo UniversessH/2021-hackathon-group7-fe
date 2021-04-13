@@ -23,4 +23,4 @@ jobs:
 
           ARGS: "-a -z"
           FOLDER: ./build/
-          SERVER_DESTINATION: /usr/share/nginx/html/hackathon/
+          SERVER_DESTINATION: /usr/share/nginx/html/tudo/
