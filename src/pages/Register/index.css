@@ -1,0 +1,58 @@
+.box1{
+  width:40%;
+  height:40%;
+  background-color: white;
+  border-color: rgb(232,232,232);
+  border-style: solid;
+  border-radius: 5px;
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+}
+.center{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.text{
+  font-size: 35px;
+  font-style:
+}
+.button{
+  width:75%;
+  background-color:rgb(63,143,246);
+  border:1px solid #357ebd;
+  border-radius: 5px;
+  padding: 15px 15px;
+  margin:25px 5px;
+  color:white;
+  text-align: center;
+  display: inline-block;
+  font-size: 15px;
+  text-decoration:none;
+}
+input[type=text]{
+  border:2px solid rgb(232,232,232);
+  border-radius: 5px;
+  width: 75%;
+  padding: 8px 14px;
+  margin: 25px 5px;
+  box-sizing: border-box;
+  background-position: 5px 5px; 
+  background-repeat: no-repeat;
+  background-image: url(../../img/acc.png);
+  padding-left: 25px;
+}
+input[type=password]{
+  border:2px solid rgb(232,232,232);
+  border-radius: 5px;
+  width: 75%;
+  padding: 8px 14px;
+  margin: 25px 5px;
+  box-sizing: border-box;
+  background-position: 5px 5px; 
+  background-repeat: no-repeat;
+  background-image: url(../../img/pass.png);
+  padding-left:26px;
+}
