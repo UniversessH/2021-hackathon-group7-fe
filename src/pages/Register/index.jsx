@@ -12,7 +12,7 @@ export default class Login extends Component {
     password: "",
     passwordCheck: "",
     show: false,
-    loading: true
+    loading: false
   }
 
   To_Login = () => {
@@ -56,7 +56,7 @@ export default class Login extends Component {
     } else if (this.state.password === this.state.passwordCheck) {
       axios({
         method: 'post',
-        url: "/api/register",
+        url: "https://nspyf.top/register",
         data: {
           username: this.state.username,
           password: this.state.password
