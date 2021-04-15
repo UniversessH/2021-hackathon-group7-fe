@@ -38,7 +38,7 @@ export default class Login extends Component {
     })
     axios({
       method: 'post',
-      url: "/api/login",
+      url: "https://nspyf.top/login",
       data: this.state,
     })
       .then(
