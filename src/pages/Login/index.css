@@ -1,58 +1,185 @@
-.box1{
-  width:40%;
-  height:40%;
-  background-color: white;
-  border-color: rgb(232,232,232);
-  border-style: solid;
-  border-radius: 5px;
-  position: absolute;
-  left:50%;
-  top:50%;
-  transform: translate(-50%, -50%);
+*{
+  font-size: 16px;
 }
-.center{
-  display:flex;
+.body_div{
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.text{
-  font-size: 35px;
-  font-style:
+.inputDiv{
+  width:70%;
+  height:70%;
+  display: flex;
+  margin-left: 2rem;
+  margin-right:2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.button{
-  width:75%;
-  background-color:rgb(63,143,246);
-  border:1px solid #357ebd;
-  border-radius: 5px;
-  padding: 15px 15px;
-  margin:25px 5px;
-  color:white;
-  text-align: center;
-  display: inline-block;
-  font-size: 15px;
-  text-decoration:none;
+.backButton_div{
+  width:70%;
+  height:10%;
+  display: flex;
+  margin-left: 2rem;
+  margin-right:2rem;
+  justify-content: flex-start;
+  flex:none;
+}
+.backButton{
+  width:1rem;
+  height:1rem;
+}
+.backText{
+  font-size: 0.785rem;
+}
+.logo{
+  width:30%;
+  margin-bottom: 3.5rem;
+}
+.loginButton{
+  color:rgb(230,246,242);
+  background-image: linear-gradient(rgb(117,196,136),rgb(12,167,170));
+  font-size:0.8rem;
+  border:0.1rem solid rgb(231,232,235);
+  border-radius: 1.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  outline: none;
+  border:none
+}
+.loginButton:hover{
+  cursor: pointer;
+  color:rgb(230,246,242);
+  background-image: linear-gradient(rgb(95, 163, 111),rgb(11, 142, 145));
+  font-size:0.8rem;
+  border:0.1rem solid rgb(231,232,235);
+  border-radius: 1.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  outline: none;
+  border:none
+}
+.smallLink_div{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.smallLink{
+  font-size: 0.3rem;
+  color:rgb(55,179,156)
 }
 input[type=text]{
-  border:2px solid rgb(232,232,232);
-  border-radius: 5px;
-  width: 75%;
-  padding: 8px 14px;
-  margin: 25px 5px;
+  font-size: 0.7rem;
+  border:0.1rem solid rgb(231,232,235);
+  border-radius: 1.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0.2rem;
   box-sizing: border-box;
-  background-position: 5px 5px; 
+  outline: none;
+  background-position: 0.5rem,0.5rem; 
   background-repeat: no-repeat;
   background-image: url(../../img/acc.png);
-  padding-left: 25px;
+  padding-left: 1.8rem;
 }
 input[type=password]{
-  border:2px solid rgb(232,232,232);
-  border-radius: 5px;
-  width: 75%;
-  padding: 8px 14px;
-  margin: 25px 5px;
+  font-size: 0.7rem;
+  border:0.1rem solid rgb(231,232,235);
+  border-radius: 1.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0.2rem;
   box-sizing: border-box;
-  background-position: 5px 5px; 
+  outline: none;
+  background-position: 0.5rem,0.5rem; 
   background-repeat: no-repeat;
   background-image: url(../../img/pass.png);
-  padding-left:26px;
+  padding-left:1.8rem;
+}
+
+
+
+.loader {
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  display: flex;
+  background: white;
+  padding: 1rem;
+  box-shadow: 0px 40px 60px -20px rgba(0, 0, 0, 0.2);
+}
+
+.loader span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: #eee;
+  border-radius: 50%;
+  margin: 0 5px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.loader span:nth-child(2) {
+  background:rgb(224,232,205);
+}
+
+.loader span:nth-child(3) {
+  background:rgb(117,196,136);
+}
+
+.loader span:nth-child(4) {
+  background:rgb(12,167,171);
+}
+
+.loader span:not(:last-child) {
+  animation: animate 1.5s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(30px);
+  }
+}
+
+.loader span:last-child {
+  animation: jump 1.5s ease-in-out infinite;
+}
+
+@keyframes jump {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(10px, -10px);
+  }
+  20% {
+    transform: translate(20px, 10px);
+  }
+  30% {
+    transform: translate(30px, -50px);
+  }
+  70% {
+    transform: translate(-150px, -50px);
+  }
+  80% {
+    transform: translate(-140px, 10px);
+  }
+  90% {
+    transform: translate(-130px, -10px);
+  }
+  100% {
+    transform: translate(-120px, 0);
+  }
 }

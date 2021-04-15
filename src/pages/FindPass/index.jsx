@@ -11,12 +11,7 @@ export default class Login extends Component {
     username: "",
     password: "",
     passwordCheck: "",
-    show: false,
-    loading: true
-  }
-
-  To_Login = () => {
-    this.props.history.push("/login");
+    show: false
   }
 
   getUsername = (event) => {
@@ -37,13 +32,7 @@ export default class Login extends Component {
   showInfo = (event) => { this.setState({ show: true }) }
   remInfo = (event) => { this.setState({ show: false }) }
   RegisterHandler = () => {
-    this.setState({
-      loading:true
-    })
     if ((!this.state.username) || (!this.state.password)) {
-      this.setState({
-        loading:false
-      })
       toast.error("请输入正确的信息", {
         position: "top-center",
         autoClose: 5000,
@@ -64,9 +53,6 @@ export default class Login extends Component {
       })
         .then(
           response => {
-            this.setState({
-              loading: false
-            })
             toast.success('成功注册！', {
               position: "top-center",
               autoClose: 5000,
@@ -78,9 +64,6 @@ export default class Login extends Component {
             });
           },
           error => {
-            this.setState({
-              loading: false
-            })
             const { data } = error.response
             toast.error(data.message, {
               position: "top-center",
@@ -94,9 +77,6 @@ export default class Login extends Component {
           }
         )
     } else {
-      this.setState({
-        loading:false
-      })
       toast.error("第二次输入的密码不正确哦", {
         position: "top-center",
         autoClose: 5000,
@@ -114,7 +94,7 @@ export default class Login extends Component {
     return (
       <div className="body_div">
         <div className="backButton_div">
-          <img className="backButton" src={backButton} alt="backImg" onClick={this.To_Login} /><span className="backText" onClick={this.To_Login}>返回</span>
+          <img className="backButton" src={backButton} alt="backImg" /><span className="backText">返回</span>
         </div>
         <div className="inputDiv">
           <img className="logo" src={logo} alt="loginLogo" />
@@ -127,15 +107,6 @@ export default class Login extends Component {
             <div className='smallLink_div'><span className="smallLink">长度在8-32位之间，只含大小写字母、数字和符号</span></div>
           ) : null}
           <input type="password" placeholder="请再次输入密码" onChange={this.getPasswordCheck} />
-          {this.state.loading ? (
-            <div class="loader">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          ) : null}
           <button className="loginButton" onClick={this.RegisterHandler}>注册</button>
           <ToastContainer
             position="top-center"
