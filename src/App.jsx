@@ -1,16 +1,24 @@
 import React, { Component } from 'react'
-//import { Link, Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import Mainpage from './pages/Mainpage'
 //import Mypage from './pages/MyPage'
 import './App.css';
 //import menu from './img/menu.png';
-import map from './img/map.jpg'
+//import map from './img/map.jpg'
 
 export default class App extends Component {
-  
+
   render() {
     return (
-      <div className="map_div_class" id="map_div_class">
-        <img className="map_class" alt="" src={map}/> 
+      <div>
+        <Switch>
+          <Route path="/mainpage" component={Mainpage}></Route>
+          <Route path="/login" component={Login}></Route>
+          <Route path="/register" component={Register}></Route>
+          <Redirect to="/mainpage" />
+        </Switch>
       </div>
     )
   }
