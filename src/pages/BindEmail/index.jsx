@@ -45,7 +45,7 @@ export default class BindEmail extends Component {
     const { email } = this.state
     axios({
       method: 'post',
-      url: 'https://nspyf.top:11000/auth/email/binding-key',
+      url: '/api/auth/email/binding-key',
       headers: {
         'Token': token
       },
@@ -94,7 +94,7 @@ export default class BindEmail extends Component {
     const { email, key } = this.state
     axios({
       method: 'post',
-      url: 'https://nspyf.top:11000/auth/email/binding',
+      url: 'api/auth/email/binding',
       headers: {
         'Token': token
       },

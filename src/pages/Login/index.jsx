@@ -54,7 +54,7 @@ export default class Login extends Component {
     PubSub.publish('username', { username: '' })
     axios({
       method: 'post',
-      url: "https://nspyf.top:11000/login",
+      url: "/api/login",
       data: {
         user: this.state.user,
         password: this.state.password
