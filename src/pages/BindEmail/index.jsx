@@ -3,6 +3,7 @@ import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import Loading from '../../components/Loading'
 import styles from './index.module.css'
+import Logo from '../../img/Login_logo.png'
 import BackButton from '../../img/back.png'
 
 
@@ -86,6 +87,84 @@ export default class BindEmail extends Component {
       )
   }
 
+  retrieveEmail = () => {
+    const token = localStorage.getItem('token')
+    axios({
+      method: 'get',
+      url: '/api/auth/email',
+      headers: {
+        'Token': token
+      }
+    })
+      .then(
+        response => {
+          return response.data.email
+        },
+        error => {
+          this.setState({
+            Sendloading: false
+          })
+          const { data } = error.response
+          toast.error(data.message, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          return ""
+        }
+      )
+    return ""
+  }
+
+  deleteEmail = () => {
+    this.setState({
+      Sendloading: true
+    })
+    const token = localStorage.getItem('token')
+    axios({
+      method: 'delete',
+      url: '/api/auth/email/binding',
+      headers: {
+        'Token': token
+      }
+    })
+      .then(
+        response => {
+          this.setState({
+            Sendloading: false
+          })
+          toast.success('邮箱绑定已取消！', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        },
+        error => {
+          this.setState({
+            Sendloading: false
+          })
+          const { data } = error.response
+          toast.error(data.message, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
+      )
+  }
+
   BindHandler = () => {
     this.setState({
       Bindloading: true
@@ -135,33 +214,61 @@ export default class BindEmail extends Component {
   }
 
   render() {
-
-    return (
-      <div className={styles.body_div}>
-        <div className={styles.backButton_div}>
-          <img className={styles.backButton} src={BackButton} alt="backImg" onClick={this.To_Setting} />
-        </div>
-        <div className={styles.inputDiv}>
-          <div className={styles.SendDiv}>
-            <input type="text" className={styles.InputEmail} placeholder="请输入邮箱" onChange={this.getEmail} /> <button className={styles.SendButton} onClick={this.sendEmail}> 发送验证码 </button>
+    const { email } = this.retrieveEmail()
+    
+    if(email==="") {
+      return (
+        <div className={styles.body_div}>
+          <div className={styles.backButton_div}>
+            <img className={styles.backButton} src={BackButton} alt="backImg" onClick={this.To_Setting} />
           </div>
-          {this.state.Sendloading ? <Loading /> : null}
-          <input type="text" className={styles.InputKey} placeholder="请输入验证码" onChange={this.getKey} />
-          {this.state.Bindloading ? <Loading /> : null}
-          <button className={styles.ConfirmButton} onClick={this.BindHandler}>绑定</button>
-          <ToastContainer
-            position="top-center"
-            autoClose={5000}
-            hideProgressBar
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-          />
+          <div className={styles.inputDiv}>
+            <img className={styles.logo} src={Logo} alt="loginLogo" />
+            <p>已经绑定邮箱：{email}</p>
+            <button className={styles.ConfirmButton} onClick={this.deleteEmail}>解除绑定</button>
+            <ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
+          </div>
         </div>
-      </div>
-    )
+      )
+    } else {
+      return (
+        <div className={styles.body_div}>
+          <div className={styles.backButton_div}>
+            <img className={styles.backButton} src={BackButton} alt="backImg" onClick={this.To_Setting} />
+          </div>
+          <div className={styles.inputDiv}>
+            <img className={styles.logo} src={Logo} alt="loginLogo" />
+            <div className={styles.SendDiv}>
+              <input type="text" className={styles.InputEmail} placeholder="请输入邮箱" onChange={this.getEmail} /> <button className={styles.SendButton} onClick={this.sendEmail}> 发送验证码 </button>
+            </div>
+            {this.state.Sendloading ? <Loading /> : null}
+            <input type="text" className={styles.InputKey} placeholder="请输入验证码" onChange={this.getKey} />
+            {this.state.Bindloading ? <Loading /> : null}
+            <button className={styles.ConfirmButton} onClick={this.BindHandler}>绑定</button>
+            <ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
+          </div>
+        </div>
+      )
+    }
   }
 }
