@@ -8,6 +8,8 @@ import Setting from './pages/Setting'
 import BindEmail from './pages/BindEmail'
 import PersonInfo from './pages/PersonInfo'
 import './App.css';
+//import menu from './img/menu.png';
+//import map from './img/map.jpg'
 
 export default class App extends Component {
 
