@@ -87,10 +87,11 @@ html{
   display: inline-block;
 }
 .InputEmail{
+  display: inline-block;
   font-size: 0.7rem;
   border:0.1rem solid rgb(231,232,235);
   border-radius: 1.5rem;
-  width: 100%;
+  width: 55%;
   padding: 0.5rem;
   margin-top: 1rem;
   margin-bottom: 0.2rem;
@@ -102,11 +103,10 @@ html{
   padding-left: 1.8rem;
 }
 .InputKey{
-  display: inline-block;
   font-size: 0.7rem;
   border:0.1rem solid rgb(231,232,235);
   border-radius: 1.5rem;
-  width: 60%;
+  width: 100%;
   padding: 0.5rem;
   margin-top: 1rem;
   margin-bottom: 0.2rem;
