@@ -1,0 +1,122 @@
+html{
+  font-size: 20px;
+}
+.body_div{
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.inputDiv{
+  width:70%;
+  height:70%;
+  display: flex;
+  flex:none;
+  margin-left: 2rem;
+  margin-right:2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.backButton_div{
+  width:100%;
+  height:5%;
+  display: flex;
+  padding-left: 1.5rem;
+  padding-bottom: 3rem;
+  justify-content: flex-start;
+}
+.backButton{
+  width:1rem;
+  height:1rem;
+}
+.ConfirmButton{
+  color:rgb(230,246,242);
+  background-image: linear-gradient(rgb(117,196,136),rgb(12,167,170));
+  font-size:0.8rem;
+  border:0.1rem solid rgb(231,232,235);
+  border-radius: 1.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  outline: none;
+  border:none
+}
+.ConfirmButton:hover{
+  cursor: pointer;
+  color:rgb(230,246,242);
+  background-image: linear-gradient(rgb(95, 163, 111),rgb(11, 142, 145));
+  font-size:0.8rem;
+  border:0.1rem solid rgb(231,232,235);
+  border-radius: 1.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  outline: none;
+  border:none
+}
+.SendDiv{
+  width: 100%;
+}
+.SendButton{
+  color:rgb(230,246,242);
+  background-image: linear-gradient(rgb(117,196,136),rgb(12,167,170));
+  font-size:0.7rem;
+  border:0.1rem solid rgb(231,232,235);
+  border-radius: 1.5rem;
+  width: 40%;
+  padding: 0.5rem;
+  outline: none;
+  border:none;
+  display: inline-block;
+}
+.SendButton:hover{
+  cursor: pointer;
+  color:rgb(230,246,242);
+  background-image: linear-gradient(rgb(95, 163, 111),rgb(11, 142, 145));
+  font-size:0.7rem;
+  border:0.1rem solid rgb(231,232,235);
+  border-radius: 1.5rem;
+  width: 40%;
+  padding: 0.5rem;
+  outline: none;
+  border:none;
+  display: inline-block;
+}
+.InputEmail{
+  display: inline-block;
+  font-size: 0.7rem;
+  border:0.1rem solid rgb(231,232,235);
+  border-radius: 1.5rem;
+  width: 55%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0.2rem;
+  box-sizing: border-box;
+  outline: none;
+  background-position: 0.5rem,0.5rem; 
+  background-repeat: no-repeat;
+  background-image: url(../../img/mailbox.png);
+  padding-left: 1.8rem;
+}
+.InputKey{
+  font-size: 0.7rem;
+  border:0.1rem solid rgb(231,232,235);
+  border-radius: 1.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0.2rem;
+  box-sizing: border-box;
+  outline: none;
+  background-position: 0.5rem,0.5rem; 
+  background-repeat: no-repeat;
+  background-image: url(../../img/key.png);
+  padding-left:1.8rem;
+}
+
+
+
