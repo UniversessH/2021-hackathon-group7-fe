@@ -74,7 +74,7 @@ export default class ActDetail extends Component {
             <div className={styles.Sub_div}>
               <div className={styles.Sub}>
                 <img src={Sub} style={{ width: "1rem" }} alt="pic" />
-                <span style={{ fontSize: "0.1rem", color: "white", marginBottom: "0.2rem" }}>关注</span>
+                <span style={{ fontSize: "0.5rem", color: "white", marginBottom: "0.2rem" }}>关注</span>
               </div>
             </div>
             <input className={styles.Input} placeholder="友善的你想说什么？" onClick={this.Switch_Comment} />
