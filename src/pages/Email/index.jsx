@@ -25,10 +25,11 @@ export default class Email extends Component {
     this.props.history.push("/tudo/setting")
   }
 
-  toBindEmail = () => {
+  To_BindEmail = () => {
     this.props.history.push("/tudo/bindemail")
   }
 
+  //查询账号是否绑定邮箱
   retrieveEmail = () => {
     this.setState({
       loading: true
@@ -74,6 +75,7 @@ export default class Email extends Component {
       })
   }
 
+  //删除账号的绑定邮箱
   deleteEmail = () => {
     this.setState({
       loading: true
@@ -118,7 +120,7 @@ export default class Email extends Component {
   }
 
   render() {
-    let EmailInfo
+    let EmailInfo = ""
     if (this.state.email === 'undefined') {
       EmailInfo = '点击查询邮箱是否绑定'
     } else if (this.state.email === '') {
@@ -135,7 +137,7 @@ export default class Email extends Component {
           <img className={styles.logo} src={Logo} alt="loginLogo" />
           <p style={{ fontSize: "0.8rem", whiteSpace: "nowrap" }}>{EmailInfo}</p>
           <button className={styles.ConfirmButton} onClick={this.retrieveEmail}>查询邮箱</button>
-          <button className={styles.ConfirmButton} onClick={this.toBindEmail}>绑定邮箱</button>
+          <button className={styles.ConfirmButton} onClick={this.To_BindEmail}>绑定邮箱</button>
           <button className={styles.ConfirmButton} onClick={this.deleteEmail}>解除绑定</button>
           {this.state.loading ? <Loading /> : null}
           <ToastContainer

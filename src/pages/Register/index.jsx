@@ -35,8 +35,8 @@ export default class Login extends Component {
       passwordCheck: event.target.value
     })
   }
-  showInfo = (event) => { this.setState({ show: true }) }
-  remInfo = (event) => { this.setState({ show: false }) }
+  showInfo = (event) => { this.setState({ show: true }) } //展示提示信息
+  remInfo = (event) => { this.setState({ show: false }) } //去除提示信息
   RegisterHandler = () => {
     this.setState({
       loading: true

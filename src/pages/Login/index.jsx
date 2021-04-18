@@ -61,7 +61,7 @@ export default class Login extends Component {
     this.setState({
       loading: true
     })
-    PubSub.publish('username', { username: '' })
+    PubSub.publish('username', { username: '' }) //请求发送前通知
     axios({
       method: 'post',
       url: "https://nspyf.top:11000/login",
@@ -85,7 +85,7 @@ export default class Login extends Component {
             progress: undefined,
           });
           const { data } = response.data
-          PubSub.publish('username', { username: data.username })
+          PubSub.publish('username', { username: this.state.user })//请求收到之后通知更新
           localStorage.setItem('token', data.token)//将res中的token存入localstorage中
           this.props.history.push("/tudo")
         })

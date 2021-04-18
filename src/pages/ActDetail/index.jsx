@@ -9,6 +9,7 @@ import Search from '../../img/find.png'
 import Share from '../../img/share.png'
 import Sub from '../../img/sub.png'
 
+//活动细节页面
 export default class ActDetail extends Component {
   //鉴权
   componentDidMount() {
@@ -18,30 +19,30 @@ export default class ActDetail extends Component {
   }
 
   state = {
-    buttonType: true
+    buttonType: true //控制底部按钮的类型，true为我要报名按钮，false为评论发送按钮
   }
 
   To_ActList = () => {
-    this.props.history.push("/tudo/actlist")
+    this.props.history.push("/tudo/actlist") //返回活动列表
   }
 
   Switch_Comment = () => {
     this.props.history.push("/tudo/actdelt/comment")
     this.setState({
       buttonType:false
-    })
+    })  //切换到评论区
   }
 
   SignUp_BTN = () => {
     this.setState({
       buttonType:true
-    })
+    })  //将按钮切换为报名
   }
 
   Send_BTN = () => {
     this.setState({
       buttonType:false
-    })
+    })  //将按钮切换为发送评论
   }
   
   render() {

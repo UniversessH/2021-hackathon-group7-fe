@@ -8,14 +8,17 @@ import Setting from '../../img/setting.png'
 import BackButton from '../../img/back.png'
 
 export default class MyPage extends Component {
+  state={
+    username:'用户名'
+  }
   componentDidMount() {
     //鉴权
     if (!localStorage.getItem('token')) {
       this.props.history.push('/tudo/login')
     }
 
-    this.fan = PubSub.subscribe('username', (_, stateObj) => {
-      this.setState(stateObj)
+    this.fan = PubSub.subscribe('username', (_, stateObj) => { 
+      this.setState({stateObj})  //组件挂载时订阅
     })
   }
 
@@ -37,7 +40,7 @@ export default class MyPage extends Component {
         </div>
         <div className={styles.Portrait_div}>
           <img className={styles.Portrait} src={Portrait} alt="portrait"></img>
-          <span className={styles.username}>用户名</span>
+          <span className={styles.username}>{this.state.username}</span>
         </div>
         <div className={styles.Side_div} onClick={this.To_ActList}>
           <img src={Temp} alt="Temp" className={styles.small_pic} />
@@ -55,6 +58,6 @@ export default class MyPage extends Component {
     )
   }
   componentWillUnmount() {
-    PubSub.unsubscribe(this.fan)
+    PubSub.unsubscribe(this.fan)    //组件卸载时取消订阅
   }
 }

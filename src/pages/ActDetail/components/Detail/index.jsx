@@ -3,6 +3,7 @@ import { Carousel } from 'react-responsive-carousel'
 import styles from 'react-responsive-carousel/lib/styles/carousel.min.css'
 import test from '../../../../img/test.jpg'
 
+//活动细节页面中的活动具体内容
 export default class Detail extends Component {
   render() {
     return (
