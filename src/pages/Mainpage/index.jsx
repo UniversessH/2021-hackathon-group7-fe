@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {ToastContainer , toast} from 'react-toastify'
 import styles from './index.module.css'
 import Portrait from '../../img/portrait.png'
 import Message from '../../img/mail.png'
@@ -87,7 +86,6 @@ export default class Mainpage extends Component {
             <img src={Trees5} className={styles.Building} alt='pic'></img>
           </div>
         </div>
-        <ToastContainer/>
       </div>
     )
   }
