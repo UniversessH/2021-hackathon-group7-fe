@@ -26,7 +26,6 @@ export default class BindEmail extends Component {
   }
 
   getEmail = (event) => {
-    console.log(event.target.value);
     this.setState({
       email: event.target.value
     })
@@ -72,6 +71,84 @@ export default class BindEmail extends Component {
         error => {
           this.setState({
             loading: false
+          })
+          const { data } = error.response
+          toast.error(data.message, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
+      )
+  }
+
+  retrieveEmail = () => {
+    const token = localStorage.getItem('token')
+    axios({
+      method: 'get',
+      url: '/api/auth/email',
+      headers: {
+        'Token': token
+      }
+    })
+      .then(
+        response => {
+          return response.data.email
+        },
+        error => {
+          this.setState({
+            Sendloading: false
+          })
+          const { data } = error.response
+          toast.error(data.message, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          return ""
+        }
+      )
+    return ""
+  }
+
+  deleteEmail = () => {
+    this.setState({
+      Sendloading: true
+    })
+    const token = localStorage.getItem('token')
+    axios({
+      method: 'delete',
+      url: '/api/auth/email/binding',
+      headers: {
+        'Token': token
+      }
+    })
+      .then(
+        response => {
+          this.setState({
+            Sendloading: false
+          })
+          toast.success('邮箱绑定已取消！', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        },
+        error => {
+          this.setState({
+            Sendloading: false
           })
           const { data } = error.response
           toast.error(data.message, {
@@ -136,7 +213,6 @@ export default class BindEmail extends Component {
   }
 
   render() {
-
     return (
       <div className={styles.body_div}>
         <div className={styles.backButton_div}>
@@ -162,7 +238,7 @@ export default class BindEmail extends Component {
             pauseOnHover
           />
         </div>
-      </div>
-    )
-  }
+        </div>
+      )
+    }
 }
