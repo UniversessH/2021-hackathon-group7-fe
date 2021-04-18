@@ -25,6 +25,9 @@ export default class Setting extends Component {
   To_Email = () => {
     this.props.history.push('/tudo/email')
   }
+  To_AboutUs =() =>{
+    this.props.history.push('/tudo/aboutus')
+  }
   render() {
     return (
       <div className={styles.body_div}>
@@ -43,8 +46,8 @@ export default class Setting extends Component {
         <div className={styles.Middle_div}>
           <span>隐私政策</span>
         </div>
-        <div className={styles.Side_down_div}>
-          <span>关于TU DO</span>
+        <div className={styles.Side_down_div} onClick={this.To_AboutUs}>
+          <span>关于TUDO</span>
         </div>
         <div className={styles.between2}></div>
         <div className={styles.quit} onClick={this.quit}>

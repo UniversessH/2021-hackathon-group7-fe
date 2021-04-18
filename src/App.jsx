@@ -12,6 +12,7 @@ import ActList from './pages/ActList'
 import Message from './pages/Message'
 import SearchList from './pages/SearchList'
 import ActDetail from './pages/ActDetail'
+import AboutUs from './pages/AboutUs'
 import './App.css';
 
 export default class App extends Component {
@@ -32,6 +33,7 @@ export default class App extends Component {
           <Route path="/tudo/message" component={Message}></Route>
           <Route path="/tudo/searchlist" component={SearchList}></Route>
           <Route path="/tudo/actdelt" component={ActDetail}></Route>
+          <Route path="/tudo/aboutus" component={AboutUs}></Route>
           <Redirect to="/tudo" />
         </Switch>
       </div>
