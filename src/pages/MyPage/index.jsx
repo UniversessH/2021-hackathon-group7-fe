@@ -17,7 +17,6 @@ export default class MyPage extends Component {
     this.fan = PubSub.subscribe('username', (_, stateObj) => {
       this.setState(stateObj)
     })
-    console.log(this.state)
   }
 
   To_Setting = () => {
@@ -25,6 +24,9 @@ export default class MyPage extends Component {
   }
   To_Mainpage = () => {
     this.props.history.push("/tudo");
+  }
+  To_ActList =() => {
+    this.props.history.push("/tudo/actlist")
   }
 
   render() {
@@ -37,11 +39,11 @@ export default class MyPage extends Component {
           <img className={styles.Portrait} src={Portrait} alt="portrait"></img>
           <span className={styles.username}>用户名</span>
         </div>
-        <div className={styles.Side_div}>
+        <div className={styles.Side_div} onClick={this.To_ActList}>
           <img src={Temp} alt="Temp" className={styles.small_pic} />
           <span>我的时刻</span>
         </div>
-        <div className={styles.Middle_div}>
+        <div className={styles.Middle_div} onClick={this.To_ActList}>
           <img src={Heart} alt="Heart" className={styles.small_pic} />
           <span>我的关注</span>
         </div>

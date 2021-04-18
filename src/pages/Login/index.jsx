@@ -26,6 +26,16 @@ export default class Login extends Component {
         draggable: true,
         progress: undefined,
       });
+    }else{
+      toast.warning('当前已处于登录状态', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   }
   To_Register = () => {
@@ -54,7 +64,7 @@ export default class Login extends Component {
     PubSub.publish('username', { username: '' })
     axios({
       method: 'post',
-      url: "/api/login",
+      url: "https://nspyf.top:11000/login",
       data: {
         user: this.state.user,
         password: this.state.password

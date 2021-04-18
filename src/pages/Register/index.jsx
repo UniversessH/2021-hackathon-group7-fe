@@ -57,7 +57,7 @@ export default class Login extends Component {
     } else if (this.state.password === this.state.passwordCheck) {
       axios({
         method: 'post',
-        url: "/api/register",
+        url: "https://nspyf.top:11000/register",
         data: {
           username: this.state.username,
           password: this.state.password
@@ -119,7 +119,7 @@ export default class Login extends Component {
           <img className={styles.logo} src={logo} alt="loginLogo" />
           <input type="text" className={styles.InputUsername} placeholder="请输入账号" onChange={this.getUsername} onFocus={this.showInfo} onBlur={this.remInfo} />
           {this.state.show ? (
-            <div className={styles.smallLink_div}><span className={styles.smallLink}>长度在2-16位之间，只含大小写字母和数字&nbsp;(可在注册成功后进入个人页绑定邮箱哦)</span></div>
+            <div className={styles.smallLink_div}><span className={styles.smallLink}>长度在2-16位之间，只含大小写字母和数字&nbsp;<br/>可在注册成功后进入设置绑定邮箱</span></div>
           ) : null}
           <input type="password" className={styles.InputPassword} placeholder="请输入密码" onChange={this.getPassword} onFocus={this.showInfo} onBlur={this.remInfo} />
           {this.state.show ? (
