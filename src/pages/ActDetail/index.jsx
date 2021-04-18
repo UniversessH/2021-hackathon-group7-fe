@@ -73,7 +73,7 @@ export default class ActDetail extends Component {
           <div>
             <div className={styles.Sub_div}>
               <div className={styles.Sub}>
-                <img src={Sub} style={{ width: "1rem" }} />
+                <img src={Sub} style={{ width: "1rem" }} alt="pic" />
                 <span style={{ fontSize: "0.1rem", color: "white", marginBottom: "0.2rem" }}>关注</span>
               </div>
             </div>
