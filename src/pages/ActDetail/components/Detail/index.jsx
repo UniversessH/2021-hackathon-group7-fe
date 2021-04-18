@@ -28,6 +28,7 @@ export default class Detail extends Component {
           <p style={{ fontSize: "1rem", marginLeft: "1rem", marginBottom: "5%" }}>活动主旨</p>
           <p style={{ fontSize: "1rem", marginLeft: "1rem", marginBottom: "5%" }}>活动内容</p>
         </div>
+        <div className={styles}></div>
       </div>
     )
   }
