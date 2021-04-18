@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
+import styles from './index.module.css'
 
 export default class AboutUs extends Component {
+  To_Setting=()=>{
+    this.props.history.push("/tudo/setting")
+  }
   render() {
     return (
-      <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
-        <div style={{width:"70%",height="80"}}>
-          <h1>TUDO图度项目团队</h1>
+      <div className={styles.body_div}>
+        <div className={styles.List} onClick={this.To_Setting}>
+          <h1 style={{color:"rgb(12,167,170)"}}>TUDO图度项目团队</h1>
           <ul>
             <li>产品组：邹菲</li>
             <li>产品组：张莹</li>
