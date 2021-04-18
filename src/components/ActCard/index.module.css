@@ -1,0 +1,33 @@
+html{
+  font-size:20px
+}
+.Card{
+  width:100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 5px 9px 0 rgba(0,0,0,0.19);
+  margin-top: 5%;
+}
+.Info{
+  display: flex;
+  flex-direction: column;
+  margin-right: 5%;
+}
+.InfoImg{
+  margin: 1%;
+  width: 40%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+.Title{
+  font-size: 1rem;
+  word-break:keep-all; 
+  margin-top: 5%;
+  margin-bottom: 10%;
+}
+.Detail{
+  color:rgb(12,167,170);
+  font-size: 0.8rem;
+}

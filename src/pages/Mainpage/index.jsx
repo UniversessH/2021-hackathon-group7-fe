@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {ToastContainer , toast} from 'react-toastify'
 import styles from './index.module.css'
 import Portrait from '../../img/portrait.png'
 import Message from '../../img/mail.png'
@@ -28,56 +29,65 @@ export default class Mainpage extends Component {
   To_Mypage = () => {
     this.props.history.push("/tudo/mypage")
   }
+  To_SearchList = () => {
+    this.props.history.push("/tudo/searchlist")
+  }
+  To_Message = () => {
+    this.props.history.push("/tudo/message")
+  }
+  To_ActList = () => {
+    this.props.history.push("/tudo/actlist")
+  }
   render() {
     return (
       <div className={styles.body_div}>
         <div className={styles.TopBar}>
           <img src={Portrait} alt="Portrait" className={styles.Portrait} onClick={this.To_Mypage}></img>
-          <input disabled="disabled" className={styles.Search} />
-          <img src={Message} alt="Message" className={styles.Message}></img>
+          <input className={styles.Search} onClick={this.To_SearchList} />
+          <img src={Message} alt="Message" className={styles.Message} onClick={this.To_Message}></img>
         </div>
         <div className={styles.Occupy}></div>
         <div className={styles.map}>
           <div className={styles.Rank1}>
-            <img src={TianjianBP} className={styles.Building} alt='pic'></img>
-            <img src={Science} className={styles.Building} alt='pic'></img>
-            <img src={Constructer} className={styles.Building} alt='pic'></img>
-            <img src={Tree_c} className={styles.Tree_c} alt='pic'></img>
-            <img src={Trees1} className={styles.Building} alt='pic'></img>
+            <img src={TianjianBP} className={styles.Building} alt='pic' onClick={this.To_ActList}></img>
+            <img src={Science} className={styles.Building} alt='pic' onClick={this.To_ActList}></img>
+            <img src={Constructer} className={styles.Building} alt='pic' onClick={this.To_ActList}></img>
+            <img src={Tree_c} className={styles.Tree_c} alt='pic' ></img>
+            <img src={Trees1} className={styles.Building} alt='pic' ></img>
           </div>
           <div className={styles.Rank2}>
-            <img src={TianjianPG} className={styles.Building} alt='pic'></img>
-            <img src={Library} className={styles.Building} alt='pic'></img>
+            <img src={TianjianPG} className={styles.Building} alt='pic' onClick={this.To_ActList}></img>
+            <img src={Library} className={styles.Building} alt='pic' onClick={this.To_ActList}></img>
             <img src={Tree_c} className={styles.Tree_c} alt='pic'></img>
-            <img src={Liberal} className={styles.Building} alt='pic'></img>
-            <img src={MainBuild} className={styles.Building} alt='pic'></img>
-            <img src={XiuxianSquare} className={styles.Building} alt='pic'></img>
+            <img src={Liberal} className={styles.Building} alt='pic' onClick={this.To_ActList}></img>
+            <img src={MainBuild} className={styles.Building} alt='pic' onClick={this.To_ActList}></img>
+            <img src={XiuxianSquare} className={styles.Building} alt='pic' onClick={this.To_ActList}></img>
             <img src={Tree_c} className={styles.Tree_c} alt='pic'></img>
           </div>
           <div className={styles.Rank3}>
-            <img src={XiuxianPG} className={styles.Building} alt='pic'></img>
-            <img src={Extramen} className={styles.Building} alt='pic'></img>
+            <img src={XiuxianPG} className={styles.Building} alt='pic' onClick={this.To_ActList}></img>
+            <img src={Extramen} className={styles.Building} alt='pic' onClick={this.To_ActList}></img>
             <img src={Tree_c} className={styles.Tree_c} alt='pic'></img>
-            <img src={RoundSquare} className={styles.Building} alt='pic'></img>
+            <img src={RoundSquare} className={styles.Building} alt='pic' onClick={this.To_ActList}></img>
             <img src={Trees1} className={styles.Building} alt='pic'></img>
             <img src={Trees2} className={styles.Building} alt='pic'></img>
           </div>
           <div className={styles.Rank4}>
-            <img src={XiuxianBP} className={styles.Building} alt='pic'></img>
+            <img src={XiuxianBP} className={styles.Building} alt='pic' onClick={this.To_ActList}></img>
             <img src={Tree_c} className={styles.Tree_c} alt='pic'></img>
-            <img src={Hospital} className={styles.Building} alt='pic'></img>
-            <img src={Art} className={styles.Building} alt='pic'></img>
+            <img src={Hospital} className={styles.Building} alt='pic' onClick={this.To_ActList}></img>
+            <img src={Art} className={styles.Building} alt='pic' onClick={this.To_ActList}></img>
             <img src={Trees5} className={styles.Building} alt='pic'></img>
             <img src={Trees4} className={styles.Building} alt='pic'></img>
           </div>
           <div className={styles.Rank5}>
             <img src={Trees3} className={styles.Building} alt='pic'></img>
-            <img src={BaifanStatium} className={styles.Building} alt='pic'></img>
+            <img src={BaifanStatium} className={styles.Building} alt='pic' onClick={this.To_ActList}></img>
             <img src={Trees4} className={styles.Building} alt='pic'></img>
             <img src={Trees5} className={styles.Building} alt='pic'></img>
           </div>
         </div>
-
+        <ToastContainer/>
       </div>
     )
   }

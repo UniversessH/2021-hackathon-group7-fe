@@ -4,15 +4,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import Loading from '../../components/Loading'
 import styles from './index.module.css'
 import BackButton from '../../img/back.png'
+import Logo from '../../img/Login_logo.png'
 
 
 export default class BindEmail extends Component {
-  state = {
-    email: '',
-    key: '',
-    Sendloading: false,
-    Bindloading: false
-  }
   //鉴权
   componentDidMount() {
     if (!localStorage.getItem('token')) {
@@ -20,8 +15,14 @@ export default class BindEmail extends Component {
     }
   }
 
-  To_Setting = () => {
-    this.props.history.push("/tudo/setting")
+  state = {
+    email: '',
+    key: '',
+    loading: false,
+  }
+
+  To_Email = () => {
+    this.props.history.push("/tudo/email")
   }
 
   getEmail = (event) => {
@@ -39,13 +40,13 @@ export default class BindEmail extends Component {
 
   sendEmail = () => {
     this.setState({
-      Sendloading: true
+      loading: true
     })
     const token = localStorage.getItem('token')
     const { email } = this.state
     axios({
       method: 'post',
-      url: '/api/auth/email/binding-key',
+      url: 'https://nspyf.top:11000/auth/email/binding-key',
       headers: {
         'Token': token
       },
@@ -56,7 +57,7 @@ export default class BindEmail extends Component {
       .then(
         response => {
           this.setState({
-            Sendloading: false
+            loading: false
           })
           toast.success('发送成功！请在你的邮箱内查收验证码', {
             position: "top-center",
@@ -70,7 +71,7 @@ export default class BindEmail extends Component {
         },
         error => {
           this.setState({
-            Sendloading: false
+            loading: false
           })
           const { data } = error.response
           toast.error(data.message, {
@@ -88,13 +89,13 @@ export default class BindEmail extends Component {
 
   BindHandler = () => {
     this.setState({
-      Bindloading: true
+      loading: true
     })
     const token = localStorage.getItem('token')
     const { email, key } = this.state
     axios({
       method: 'post',
-      url: 'api/auth/email/binding',
+      url: 'https://nspyf.top:11000/auth/email/binding',
       headers: {
         'Token': token
       },
@@ -105,7 +106,7 @@ export default class BindEmail extends Component {
     })
       .then(response => {
         this.setState({
-          Bindloading: false
+          loading: false
         })
         toast.success('绑定成功！', {
           position: "top-center",
@@ -119,7 +120,7 @@ export default class BindEmail extends Component {
       })
       .catch(error => {
         this.setState({
-          Bindloading: false
+          loading: false
         })
         const { data } = error.response
         toast.error(data.message, {
@@ -139,15 +140,15 @@ export default class BindEmail extends Component {
     return (
       <div className={styles.body_div}>
         <div className={styles.backButton_div}>
-          <img className={styles.backButton} src={BackButton} alt="backImg" onClick={this.To_Setting} />
+          <img className={styles.backButton} src={BackButton} alt="backImg" onClick={this.To_Email} />
         </div>
         <div className={styles.inputDiv}>
+          <img className={styles.logo} src={Logo} alt="loginLogo" />
+          <input type="text" className={styles.InputEmail} placeholder="请输入邮箱" onChange={this.getEmail} />
           <div className={styles.SendDiv}>
-            <input type="text" className={styles.InputEmail} placeholder="请输入邮箱" onChange={this.getEmail} /> <button className={styles.SendButton} onClick={this.sendEmail}> 发送验证码 </button>
+            <input type="text" className={styles.InputKey} placeholder="请输入验证码" onChange={this.getKey} /><button className={styles.SendButton} onClick={this.sendEmail}> 发送验证码 </button>
           </div>
-          {this.state.Sendloading ? <Loading /> : null}
-          <input type="text" className={styles.InputKey} placeholder="请输入验证码" onChange={this.getKey} />
-          {this.state.Bindloading ? <Loading /> : null}
+          {this.state.loading ? <Loading /> : null}
           <button className={styles.ConfirmButton} onClick={this.BindHandler}>绑定</button>
           <ToastContainer
             position="top-center"

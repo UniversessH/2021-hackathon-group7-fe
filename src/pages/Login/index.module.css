@@ -1,80 +1,97 @@
-html{
+html {
   font-size: 20px;
 }
-.body_div{
-  position:absolute;
+
+.body_div {
+  position: absolute;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
-.inputDiv{
-  width:70%;
-  height:70%;
+
+.inputDiv {
+  width: 70%;
+  height: 70%;
   display: flex;
   margin-left: 2rem;
-  margin-right:2rem;
+  margin-right: 2rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.backButton_div{
-  width:90%;
-  height:5%;
+
+.backButton_div {
+  width: 100%;
+  height: 14%;
   display: flex;
-  padding-left: 1.5rem;
-  padding-bottom: 3rem;
   justify-content: flex-start;
-  flex:none;
+  flex: none;
 }
-.backButton{
-  width:1rem;
-  height:1rem;
+
+.backButton {
+  width: 1rem;
+  height: 1rem;
+  padding-left: 1rem;
+  padding-top: 1rem;
 }
-.logo{
-  width:30%;
+
+.logo {
+  width: 60%;
   margin-bottom: 3.5rem;
 }
-.loginButton{
-  color:rgb(230,246,242);
-  background-image: linear-gradient(rgb(117,196,136),rgb(12,167,170));
-  font-size:0.8rem;
-  border:0.1rem solid rgb(231,232,235);
+
+@media screen and (min-device-width:1024px) {
+  .logo {
+    width: 30%;
+    margin-bottom: 3.5rem;
+  }
+}
+
+.loginButton {
+  color: rgb(230, 246, 242);
+  background-image: linear-gradient(rgb(117, 196, 136), rgb(12, 167, 170));
+  font-size: 0.8rem;
+  border: 0.1rem solid rgb(231, 232, 235);
   border-radius: 1.5rem;
   width: 100%;
   padding: 0.5rem;
   margin-top: 1rem;
   outline: none;
-  border:none
+  border: none
 }
-.loginButton:hover{
+
+.loginButton:hover {
   cursor: pointer;
-  color:rgb(230,246,242);
-  background-image: linear-gradient(rgb(95, 163, 111),rgb(11, 142, 145));
-  font-size:0.8rem;
-  border:0.1rem solid rgb(231,232,235);
+  color: rgb(230, 246, 242);
+  background-image: linear-gradient(rgb(95, 163, 111), rgb(11, 142, 145));
+  font-size: 0.8rem;
+  border: 0.1rem solid rgb(231, 232, 235);
   border-radius: 1.5rem;
   width: 100%;
   padding: 0.5rem;
   margin-top: 1rem;
   outline: none;
-  border:none
+  border: none
 }
-.smallLink_div{
+
+.smallLink_div {
   width: 100%;
   display: flex;
   justify-content: flex-end;
 }
-.smallLink{
-  height:auto;
+
+.smallLink {
+  height: auto;
   font-size: 0.6rem;
-  color:rgb(55,179,156)
+  color: rgb(55, 179, 156)
 }
-.InputUser{
+
+.InputUser {
   font-size: 0.7rem;
-  border:0.1rem solid rgb(231,232,235);
+  border: 0.1rem solid rgb(231, 232, 235);
   border-radius: 1.5rem;
   width: 100%;
   padding: 0.5rem;
@@ -82,14 +99,15 @@ html{
   margin-bottom: 0.2rem;
   box-sizing: border-box;
   outline: none;
-  background-position: 0.5rem,0.5rem; 
+  background-position: 0.5rem, 0.5rem;
   background-repeat: no-repeat;
   background-image: url(../../img/acc.png);
   padding-left: 1.8rem;
 }
-.InputPassword{
+
+.InputPassword {
   font-size: 0.7rem;
-  border:0.1rem solid rgb(231,232,235);
+  border: 0.1rem solid rgb(231, 232, 235);
   border-radius: 1.5rem;
   width: 100%;
   padding: 0.5rem;
@@ -97,11 +115,8 @@ html{
   margin-bottom: 0.2rem;
   box-sizing: border-box;
   outline: none;
-  background-position: 0.5rem,0.5rem; 
+  background-position: 0.5rem, 0.5rem;
   background-repeat: no-repeat;
   background-image: url(../../img/pass.png);
-  padding-left:1.8rem;
+  padding-left: 1.8rem;
 }
-
-
-
