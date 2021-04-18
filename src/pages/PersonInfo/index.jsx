@@ -10,9 +10,11 @@ export default class PersonInfo extends Component {
       this.props.history.push('/tudo/login')
     }
   }
+
   To_Setting = () => {
     this.props.history.push('/tudo/setting')
   }
+  
   render() {
     return (
       <div className={styles.body_div}>

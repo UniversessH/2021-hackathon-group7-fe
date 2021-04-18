@@ -22,8 +22,8 @@ export default class Setting extends Component {
     this.props.history.push('/tudo/login')
     localStorage.clear()
   }
-  BindEmail = () => {
-    this.props.history.push('/tudo/bindemail')
+  To_Email = () => {
+    this.props.history.push('/tudo/email')
   }
   render() {
     return (
@@ -34,8 +34,8 @@ export default class Setting extends Component {
         <div className={styles.Side_up_div} onClick={this.To_PersonInfo}>
           <span>个人资料</span>
         </div>
-        <div className={styles.Middle_div} onClick={this.BindEmail}>
-          <span>绑定邮箱</span>
+        <div className={styles.Middle_div} onClick={this.To_Email}>
+          <span>邮箱设置</span>
         </div>
         <div className={styles.Middle_div}>
           <span>清除缓存</span>
