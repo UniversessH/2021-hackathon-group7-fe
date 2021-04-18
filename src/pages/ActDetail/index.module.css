@@ -195,6 +195,8 @@
     background-color: rgb(45, 131, 134);
     font-size: 1rem;
     width: 90%;
+    height: 25%;
+    margin-top:1rem;
     padding: 0.3rem;
     border-radius: 1.5rem;
     outline: none;

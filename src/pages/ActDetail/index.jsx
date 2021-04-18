@@ -27,6 +27,9 @@ export default class ActDetail extends Component {
 
   Switch_Comment = () => {
     this.props.history.push("/tudo/actdelt/comment")
+    this.setState({
+      buttonType:false
+    })
   }
 
   SignUp_BTN = () => {
