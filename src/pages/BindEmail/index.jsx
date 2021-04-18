@@ -18,7 +18,7 @@ export default class BindEmail extends Component {
   state = {
     email: '',
     key: '',
-    loading: false,
+    loading: false, //控制进度条的出现与否
   }
 
   To_Email = () => {
@@ -28,13 +28,13 @@ export default class BindEmail extends Component {
   getEmail = (event) => {
     console.log(event.target.value);
     this.setState({
-      email: event.target.value
+      email: event.target.value   //获得email
     })
   }
 
   getKey = (event) => {
     this.setState({
-      key: event.target.value
+      key: event.target.value     //获得验证码
     })
   }
 
@@ -44,6 +44,7 @@ export default class BindEmail extends Component {
     })
     const token = localStorage.getItem('token')
     const { email } = this.state
+    //发送绑定邮箱的验证码
     axios({
       method: 'post',
       url: 'https://nspyf.top:11000/auth/email/binding-key',
@@ -93,6 +94,7 @@ export default class BindEmail extends Component {
     })
     const token = localStorage.getItem('token')
     const { email, key } = this.state
+    //验证验证码绑定邮箱的请求
     axios({
       method: 'post',
       url: 'https://nspyf.top:11000/auth/email/binding',

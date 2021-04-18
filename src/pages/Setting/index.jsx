@@ -20,7 +20,7 @@ export default class Setting extends Component {
 
   quit = () => {
     this.props.history.push('/tudo/login')
-    localStorage.clear()
+    localStorage.clear()  //在返回的时候清除token
   }
   To_Email = () => {
     this.props.history.push('/tudo/email')

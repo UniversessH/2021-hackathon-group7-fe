@@ -8,7 +8,7 @@ html{
   z-index: 1000;
   background-image: linear-gradient(rgb(91,174,175),rgb(224,232,205));
 }
-@media screen and (min-device-width:1024px){
+@media screen and (min-device-width:768px){
   .body_div{
     width:100%
   }

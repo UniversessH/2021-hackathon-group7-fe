@@ -45,7 +45,7 @@ export default class Mainpage extends Component {
           <input className={styles.Search} onClick={this.To_SearchList} />
           <img src={Message} alt="Message" className={styles.Message} onClick={this.To_Message}></img>
         </div>
-        <div className={styles.Occupy}></div>
+        <div className={styles.Occupy}></div>   {/*由于Topbar置顶，所以用个div占位...*/}
         <div className={styles.map}>
           <div className={styles.Rank1}>
             <img src={TianjianBP} className={styles.Building} alt='pic' onClick={this.To_ActList}></img>
